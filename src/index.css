@@ -1,0 +1,18 @@
+.message {
+    background-color: aquamarine;
+}
+
+.my-message {
+    background-color: brown;
+}
+
+.close {
+    display: none;
+}
+.open{
+    display: block;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
