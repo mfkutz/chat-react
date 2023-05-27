@@ -37,7 +37,7 @@ const SendMessage = () => {
 
     return (
 
-        <form onSubmit={sendMessage} className="bg-blue-500 h-[40px] justify-evenly fixed bottom-0 flex ">
+        <form onSubmit={sendMessage} className="bg-[--blackS] h-[40px] justify-evenly fixed bottom-0 flex ">
             <button
                 type="button"
                 className="close-emoji px-3 "

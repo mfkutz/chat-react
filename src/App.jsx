@@ -5,7 +5,7 @@ import User from "./components/User"
 function App() {
 
   return (
-    <div className="flex bg-gray-200 min-h-screen relative" >
+    <div className="flex bg-[--blackO] min-h-screen relative" >
       <Header />
       <User />
       <Chat />

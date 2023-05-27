@@ -9,7 +9,7 @@ const User = () => {
     //vemos quien esta logueado
     const [user] = useAuthState(auth)
     const image = user ? user.photoURL : "/userImg.png"
-    const name = user ? user.displayName : "User"
+    const name = user ? user.displayName : "Log In with Google"
 
     return (
         <div className="bg-[--blackS] fixed top-0 left-0 max-w-[80px] min-h-screen z-20 border-r border-gray-500">

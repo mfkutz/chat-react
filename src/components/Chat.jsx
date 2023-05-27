@@ -36,7 +36,7 @@ const Chat = () => {
     return (
         <section
             ref={chatRef}
-            className="relative mt-[76px] mb-11 ml-[84px] w-full mr-1 h-screen overflow-y-auto rounded-xl rounded-b-none z-0">
+            className="relative mt-[76px] mb-11 ml-[84px] w-full mr-1 h-screen overflow-y-auto rounded-xl rounded-b-none z-0 ">
             {
                 messages && messages.map(item => (
                     <Messages
