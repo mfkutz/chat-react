@@ -21,7 +21,7 @@
 }
 
 .message.prueba{
-    background-color: var(--blackS);
+    background-color: rgb(100, 98, 98);
 }
 .my-message.prueba{
     background-color: rgb(127, 14, 208);

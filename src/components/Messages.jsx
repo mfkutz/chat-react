@@ -27,7 +27,7 @@ const Messages = ({ message }) => {
             <div className={`${newStyle}`}>
                 <article >
                     <div>
-                        <div className={`prueba ${newStyle} rounded-md px-2`}>
+                        <div className={`prueba ${newStyle} rounded-md px-4 py-1`}>
                             <p>{message.text}</p>
                         </div>
                     </div>

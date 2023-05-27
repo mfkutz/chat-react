@@ -29,7 +29,6 @@ const SendMessage = () => {
     }
 
     const onEmojiClick = (event, emojiObject) => {
-
         setInput(`${input}${event.emoji}`)
     }
 
@@ -65,6 +64,7 @@ const SendMessage = () => {
                 onChange={e => setInput(e.target.value)}
             />
             <button
+                
                 type="submit"
                 className="px-3 bg-green-500"
             >
