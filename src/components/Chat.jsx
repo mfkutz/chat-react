@@ -1,5 +1,5 @@
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { auth, db } from "../firebase/config"
 import Messages from "./Messages"
 import SendMessage from "./SendMessage"
@@ -10,6 +10,7 @@ const Chat = () => {
     //IN THIS ARRAY WILL BE SAVE ALL MESSAGES
     const [messages, setMessages] = useState([])
     const [user] = useAuthState(auth)
+    const chatRef = useRef(null)
 
 
     useEffect(() => {
@@ -25,13 +26,17 @@ const Chat = () => {
             setMessages(currentMessages)
         })
         return unSuscribe
-    },[])
+    }, [])
+
+    useEffect(() => {
+        // Ajustar el desplazamiento al contenido más reciente
+        chatRef.current.scrollTop = chatRef.current.scrollHeight;
+    }, [messages]);
 
     return (
-
-
-        <section>
-
+        <section
+            ref={chatRef}
+            className="relative mt-[76px] mb-11 ml-[84px] w-full mr-1 h-screen overflow-y-auto rounded-xl rounded-b-none z-0">
             {
                 messages && messages.map(item => (
                     <Messages
@@ -40,10 +45,8 @@ const Chat = () => {
                     />
                 ))
             }
-            {user && <SendMessage /> }
-            
+            {user && <SendMessage />}
         </section>
     )
 }
-
 export default Chat

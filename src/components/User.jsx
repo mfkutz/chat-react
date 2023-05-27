@@ -4,25 +4,25 @@ import { auth } from "../firebase/config"
 import { useAuthState } from "react-firebase-hooks/auth"
 
 
-
 const User = () => {
 
     //vemos quien esta logueado
     const [user] = useAuthState(auth)
     const image = user ? user.photoURL : "/userImg.png"
-    const name = user ? user.displayName : "Name User"
+    const name = user ? user.displayName : "User"
 
     return (
-        <div>
-            <h1>QuickChat</h1>
-            <article>
-                <img src={image} alt="user photo" referrerPolicy="no-referrer"/>
-                <p>{name}</p>
+        <div className="bg-[--blackS] fixed top-0 left-0 max-w-[80px] min-h-screen z-20">
+            <h1 className="flex pt-2 text-white text-[12px] justify-center">MKChat</h1>
+            <article className="">
+                <img className="p-2" src={image} alt="user photo" referrerPolicy="no-referrer"/>
+                <p className="text-white text-[12px] flex justify-center text-center">{name}</p>
                 {user ? <LogOut /> : <Login />}
             </article>
-
         </div>
     )
 }
 
 export default User
+
+

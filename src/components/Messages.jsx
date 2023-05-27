@@ -11,8 +11,6 @@ const Messages = ({ message }) => {
         newStyle = user === newUser ? 'my-message' : 'message'
     }
    
-
-
     return (
         <article className={newStyle}>
             <div>

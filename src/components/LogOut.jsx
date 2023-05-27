@@ -7,13 +7,10 @@ const LogOut = () => {
     const logOut = () => {
         signOut(auth)
     }
-
-
     return (
         <button
             className="bg-red-500"
             onClick={logOut}
-
         >
             logout
         </button>

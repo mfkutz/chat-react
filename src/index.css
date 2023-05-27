@@ -1,3 +1,9 @@
+:root {
+    --blackO: rgb(30, 30, 30);
+    --blackG: #252526;
+    --blackS: #333333;
+}
+
 .message {
     background-color: aquamarine;
 }
@@ -9,9 +15,11 @@
 .close {
     display: none;
 }
-.open{
+
+.open {
     display: block;
 }
+
 
 @tailwind base;
 @tailwind components;

@@ -2,14 +2,14 @@ import { useState } from "react"
 import { auth, db } from "../firebase/config"
 import { addDoc, collection, serverTimestamp } from "firebase/firestore"
 import EmojiPicker from 'emoji-picker-react';
+import { RiSendPlane2Fill } from "react-icons/ri";
 
 
 
 const SendMessage = () => {
+
     const [input, setInput] = useState('')
     const [open, setOpen] = useState('close')
-
-
     const sendMessage = async (e) => {
         e.preventDefault()
         const { uid, displayName, photoURL } = auth.currentUser
@@ -23,7 +23,6 @@ const SendMessage = () => {
         setInput("")
     }
 
-
     const emoji = () => {
         setOpen('open')
     }
@@ -32,16 +31,16 @@ const SendMessage = () => {
     }
 
     const onEmojiClick = (event, emojiObject) => {
-       
+
         setInput(`${input}${event.emoji}`)
     }
 
-
     return (
-        <form onSubmit={sendMessage}>
+
+        <form onSubmit={sendMessage} className="bg-blue-500 h-[40px] justify-evenly fixed bottom-0 flex ">
             <button
                 type="button"
-                className="close-emoji"
+                className="close-emoji px-3 "
                 onClick={emoji}
             >
                 😀
@@ -56,9 +55,12 @@ const SendMessage = () => {
                 >
                     close
                 </button>
-                <EmojiPicker onEmojiClick={onEmojiClick} />
+                <div className="left-0 bottom-10 absolute">
+                    <EmojiPicker onEmojiClick={onEmojiClick} />
+                </div>
             </div>
             <input
+                className="w-full px-2"
                 type="text"
                 placeholder="Enter you message here"
                 value={input}
@@ -66,10 +68,12 @@ const SendMessage = () => {
             />
             <button
                 type="submit"
+                className="px-3 bg-red-600"
             >
-                Send
+                <RiSendPlane2Fill />
             </button>
         </form>
+
     )
 }
 
