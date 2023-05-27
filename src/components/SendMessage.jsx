@@ -31,6 +31,9 @@ const SendMessage = () => {
     const onEmojiClick = (event, emojiObject) => {
         setInput(`${input}${event.emoji}`)
     }
+    //this line, clean input spaces on start and end line, them validate if empty, boolean result
+    const isInputEntry = input.trim() === ''
+    
 
     return (
 
@@ -64,7 +67,7 @@ const SendMessage = () => {
                 onChange={e => setInput(e.target.value)}
             />
             <button
-                
+                disabled={isInputEntry}
                 type="submit"
                 className="px-3 bg-green-500"
             >
