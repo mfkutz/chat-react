@@ -38,7 +38,7 @@ const SendMessage = () => {
         <form onSubmit={sendMessage} className="bg-[--gitblackS] h-[40px] justify-evenly fixed bottom-0 flex ">
             <button
                 type="button"
-                className="close-emoji px-3 "
+                className="close-emoji px-3 bg-gray-500"
                 onClick={emoji}
             >
                 😀
@@ -66,7 +66,7 @@ const SendMessage = () => {
             />
             <button
                 type="submit"
-                className="px-3 bg-red-600"
+                className="px-3 bg-green-500"
             >
                 <RiSendPlane2Fill />
             </button>

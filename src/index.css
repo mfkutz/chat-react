@@ -8,11 +8,23 @@
 }
 
 .message {
-    background-color: aquamarine;
+    display: flex;
+    justify-content: start;
+    color: white;
 }
 
 .my-message {
-    background-color: brown;
+    display: flex;
+    justify-content: end;
+    
+    color:white;
+}
+
+.message.prueba{
+    background-color: var(--blackS);
+}
+.my-message.prueba{
+    background-color: rgb(127, 14, 208);
 }
 
 .close {

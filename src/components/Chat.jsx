@@ -12,6 +12,7 @@ const Chat = () => {
     const [user] = useAuthState(auth)
     const chatRef = useRef(null)
 
+    
 
     useEffect(() => {
         //con esta query recuperamos todos los mensajes de la base de datos
