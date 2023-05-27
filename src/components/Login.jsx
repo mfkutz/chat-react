@@ -13,7 +13,7 @@ const Login = () => {
     return (
         <div className="flex items-center justify-center pt-3">
             <button
-                className=" flex justify-center items-center border py-2 px-3 border-black rounded-md"
+                className=" flex justify-center items-center border py-3 px-5 border-black rounded-md"
                 onClick={googleLogin}
             >
                 <RiGoogleFill className="text-[#ddf265]" />

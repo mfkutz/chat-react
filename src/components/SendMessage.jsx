@@ -4,8 +4,6 @@ import { addDoc, collection, serverTimestamp } from "firebase/firestore"
 import EmojiPicker from 'emoji-picker-react';
 import { RiSendPlane2Fill } from "react-icons/ri";
 
-
-
 const SendMessage = () => {
 
     const [input, setInput] = useState('')
@@ -37,7 +35,7 @@ const SendMessage = () => {
 
     return (
 
-        <form onSubmit={sendMessage} className="bg-[--blackS] h-[40px] justify-evenly fixed bottom-0 flex ">
+        <form onSubmit={sendMessage} className="bg-[--gitblackS] h-[40px] justify-evenly fixed bottom-0 flex ">
             <button
                 type="button"
                 className="close-emoji px-3 "
