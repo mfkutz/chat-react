@@ -12,6 +12,7 @@ const Messages = ({ message }) => {
     }
    
     return (
+    
         <article className={newStyle}>
             <div>
                 <div className="flex gap-2">
@@ -19,7 +20,7 @@ const Messages = ({ message }) => {
                 </div>
                 <p>{formatDate(message.timestamp)}</p>
             </div>
-            <img src={message.photo} alt="user foto" referrerPolicy="no-referrer" />
+            <img className="max-w-[30px] rounded-full" src={message.photo} alt="user foto" referrerPolicy="no-referrer" />
         </article>
     )
 }
