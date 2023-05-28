@@ -11,12 +11,16 @@ const SendMessage = () => {
     const [open, setOpen] = useState('close')
     const [audio] = useState(new Audio(messageSound))
 
-    console.log(audio);
+    /* console.log(audio); */
 
     const playMessageSound = () => {
         audio.play();
-      }
+    }
 
+    //this line, clean input spaces on start and end line, them validate if empty, boolean result
+    const isInputEntry = input.trim() === ''
+    const isCurrentUser = auth.currentUser && auth.currentUser.uid
+    console.log(isCurrentUser);
 
     const sendMessage = async (e) => {
         e.preventDefault()
@@ -29,7 +33,10 @@ const SendMessage = () => {
             timestamp: serverTimestamp()
         })
         setInput("")
-        playMessageSound()
+
+        if (!isCurrentUser) {
+            playMessageSound()
+        }
     }
 
     const emoji = () => {
@@ -42,9 +49,11 @@ const SendMessage = () => {
     const onEmojiClick = (event, emojiObject) => {
         setInput(`${input}${event.emoji}`)
     }
-    //this line, clean input spaces on start and end line, them validate if empty, boolean result
-    const isInputEntry = input.trim() === ''
-    
+
+
+
+
+
 
     return (
 
