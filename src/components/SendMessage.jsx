@@ -1,6 +1,6 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { auth, db } from "../firebase/config"
-import { addDoc, collection, serverTimestamp } from "firebase/firestore"
+import { addDoc, collection, onSnapshot, query, serverTimestamp, where } from "firebase/firestore"
 import EmojiPicker from 'emoji-picker-react';
 import { RiSendPlane2Fill } from "react-icons/ri";
 import messageSound from '../assets/sound.wav'
@@ -10,6 +10,7 @@ const SendMessage = () => {
     const [input, setInput] = useState('')
     const [open, setOpen] = useState('close')
     const [audio] = useState(new Audio(messageSound))
+    const [messages, setMessages] = useState([])
 
     /* console.log(audio); */
 
@@ -35,9 +36,6 @@ const SendMessage = () => {
         })
         setInput("")
         
-        if (!isCurrentUser) {
-            playMessageSound()
-        }
     }
 
     const emoji = () => {
@@ -51,6 +49,16 @@ const SendMessage = () => {
         setInput(`${input}${event.emoji}`)
     }
 
+    useEffect(() => {
+        const messagesQuery = query(collection(db, 'messages'), where('uid', '!=', auth.currentUser.uid));
+        const unsubscribe = onSnapshot(messagesQuery, (snapshot) => {
+          const newMessages = snapshot.docs.map((doc) => doc.data());
+          setMessages(newMessages);
+          playMessageSound();
+        });
+    
+        return () => unsubscribe();
+      }, []);
 
     return (
 
