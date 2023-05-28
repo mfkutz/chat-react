@@ -35,6 +35,7 @@ const SendMessage = () => {
             timestamp: serverTimestamp()
         })
         setInput("")
+        closeEmoji()
 
     }
 
