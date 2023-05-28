@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { auth, db } from "../firebase/config"
 import { addDoc, collection, onSnapshot, query, serverTimestamp, where } from "firebase/firestore"
 import EmojiPicker from 'emoji-picker-react';
-import { RiSendPlane2Fill } from "react-icons/ri";
+import { RiSendPlane2Fill, RiCloseLine } from "react-icons/ri";
 import messageSound from '../assets/sound.wav'
 
 const SendMessage = () => {
@@ -22,7 +22,7 @@ const SendMessage = () => {
     const isInputEntry = input.trim() === ''
     const isCurrentUser = auth.currentUser && auth.currentUser.uid
     console.log(isCurrentUser);
-    
+
 
     const sendMessage = async (e) => {
         e.preventDefault()
@@ -35,7 +35,7 @@ const SendMessage = () => {
             timestamp: serverTimestamp()
         })
         setInput("")
-        
+
     }
 
     const emoji = () => {
@@ -52,13 +52,13 @@ const SendMessage = () => {
     useEffect(() => {
         const messagesQuery = query(collection(db, 'messages'), where('uid', '!=', auth.currentUser.uid));
         const unsubscribe = onSnapshot(messagesQuery, (snapshot) => {
-          const newMessages = snapshot.docs.map((doc) => doc.data());
-          setMessages(newMessages);
-          playMessageSound();
+            const newMessages = snapshot.docs.map((doc) => doc.data());
+            setMessages(newMessages);
+            playMessageSound();
         });
-    
+
         return () => unsubscribe();
-      }, []);
+    }, []);
 
     return (
 
@@ -75,10 +75,10 @@ const SendMessage = () => {
             <div className={open}>
                 <button
                     type="button"
-                    className=""
+                    className="text-white text-[20px]"
                     onClick={closeEmoji}
                 >
-                    close
+                    <RiCloseLine className=""/>
                 </button>
                 <div className="left-0 bottom-10 absolute">
                     <EmojiPicker onEmojiClick={onEmojiClick} />
