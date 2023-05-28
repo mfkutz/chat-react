@@ -21,6 +21,7 @@ const SendMessage = () => {
     const isInputEntry = input.trim() === ''
     const isCurrentUser = auth.currentUser && auth.currentUser.uid
     console.log(isCurrentUser);
+    
 
     const sendMessage = async (e) => {
         e.preventDefault()
@@ -33,7 +34,7 @@ const SendMessage = () => {
             timestamp: serverTimestamp()
         })
         setInput("")
-
+        
         if (!isCurrentUser) {
             playMessageSound()
         }
@@ -49,10 +50,6 @@ const SendMessage = () => {
     const onEmojiClick = (event, emojiObject) => {
         setInput(`${input}${event.emoji}`)
     }
-
-
-
-
 
 
     return (
